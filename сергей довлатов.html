@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мир Довлатова</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333333;
+            color: #f0e68c;
+            font-size: 18px;
+        }
+        header {
+            background-color: #4a4a4a;
+            padding: 2rem;
+            color: white;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            transition: transform 0.3s, color 0.3s;
+            font-size: 1.2rem;
+        }
+        nav a:hover {
+            transform: scale(1.1);
+            color: #e0c785;
+        }
+        .section {
+            padding: 2rem;
+            text-align: center;
+        }
+        .section h2 {
+            margin-top: 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+            font-size: 2.5rem;
+        }
+        .card {
+            background-color: #444444;
+            color: #f0e68c;
+            padding: 1rem;
+            margin: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 1rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card-content {
+            display: none;
+            padding-top: 1rem;
+            text-align: justify;
+        }
+        .image-float {
+            animation: float 3s ease-in-out infinite;
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+        }
+        .parallax {
+            background: url('background-image.jpg') no-repeat center center/cover;
+            height: 300px;
+            position: relative;
+            z-index: -1;
+        }
+        .button {
+            background-color: #8e7c58;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-size: 1rem;
+        }
+        .button:hover {
+            transform: scale(0.95);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+        }
+        .gallery img {
+            width: 30%;
+            height: auto;
+            transition: transform 0.3s, opacity 0.3s;
+            opacity: 0.8;
+            animation: float 3s ease-in-out infinite;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+        .quote-section {
+            padding: 2rem;
+            color: #f0e68c;
+            text-align: center;
+            margin-top: 4rem; 
+        }
+        blockquote {
+            font-style: italic;
+            margin: 1rem auto;
+            max-width: 800px;
+            line-height: 1.5;
+            background-color: #444444;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+@media (max-width: 768px) {
+            .section {
+                padding: 1rem;
+            }
+            .card {
+                margin: 1rem auto;
+                max-width: 90%;
+            }
+            nav {
+                flex-direction: column;
+            }
+            .gallery img {
+                width: 45%;
+            }
+        }
+        @media (max-width: 480px) {
+            .button {
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .gallery img {
+                width: 90%;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Мир Довлатова</h1>
+        <nav>
+            <a href="#biography">Биография</a>
+            <a href="#works">Произведения</a>
+            <a href="#gallery">Фотогалерея</a>
+            <a href="#quotes">Цитаты</а>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <section id="biography" class="section">
+        <h2>Жизнь и творчество</h2>
+        <div style="max-width: 800px; margin: auto; text-align: justify;">
+            <p>Сергей Довлатов родился 3 сентября 1941 года в Уфе в семье театрального режиссёра Доната Мечика и литературного корректора Норы Довлатовой.</p>
+            <p>С 1944 года Сергей Довлатов жил в Ленинграде (ныне Санкт-Петербург). В 1959 году он поступил на филологический факультет Ленинградского университета, однако был отчислен со второго курса.</p>
+            <p>В 1978 году Довлатов эмигрировал в Австрию, затем переехал в США. Стал одним из создателей русскоязычной газеты «Новый американец», а с 1980 по 1982 год был её главным редактором.</p>
+            <p>К середине 1980-х годов Довлатов добился большого читательского успеха, он стал вторым после Владимира Набокова русским писателем, печатавшимся в престижном журнале New Yorker.</p>
+            <p>Сергей Довлатов скончался 24 августа 1990 года в Нью-Йорке от сердечной недостаточности.</p>
+        </div>
+        <img src="сергей.jpg" alt="Сергей Довлатов" class="image-float"/>
+    </section>
+
+    <section id="works" class="section">
+        <h2>Избранные произведения</h2>
+        <div class="card">
+            <h3>Зона: Записки надзирателя</h3>
+            <button class="button">Краткое содержание</button>
+            <div class="card-content">
+                <p>Повесть, состоящая из четырнадцати самостоятельных эпизодов, в которых рассказывается о жизни заключённых и их охранников.</p>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Компромисс</h></h3>
+            <button class="button">Краткое содержание</button>
+            <div class="card-content">
+                <p>Главный герой, журналист, оставшись без работы, перелистывает свои газетные вырезки, собранные за «десять лет вранья и притворства». Это — 70-е годы, когда он жил в Таллине.</p>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Чемодан</h3>
+            <button class="button">Краткое содержание</button>
+            <div class="card-content">
+                <p>Главный герой «Чемодана» — это литературный двойник Довлатова, советский эмигрант, живущий на окраине Нью-Йорка. Книга является мозаикой из рассказов, каждый из которых — это вещи, найденные в его чемодане.</p>
+            </div>
+        </div>
+        <div class="card
+">
+            <h3>Иностранка</h3>
+            <button class="button">Краткое содержание</button>
+            <div class="card-content">
+                <p>Бесподобно иллюстрирует жизнь советских эмигрантов в Америке. Жизнь Маруси в Нью-Йорке — это попытки найти работу, обустроиться, приобрести мебель для маленькой квартиры. За женщиной пытались ухаживать почти все представители русской колонии, но её избранником стал латиноамериканец Рафаэль — 50-летний человек без определённых занятий. Их эмоциональные отношения, бурные ссоры и перемирия вызывают много разговоров в эмигрантской среде.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section parallax">
+        <h2>Фотогалерея</h2>
+        <p>Фотографии из жизни Сергея Довлатова.</p>
+        <div class="gallery">
+            <img src="дов1.jpg" alt="Фото 1">
+            <img src="дов2.jpg" alt="Фото 2">
+            <img src="дов3.jpg" alt="Фото 3">
+        </div>
+    </section>
+
+    <section id="quotes" class="quote-section">
+        <h2>Цитаты</h2>
+        <blockquote>"Жить следует так, чтобы мир тебя помнил, а добрая память - это уже бессмертие."</blockquote>
+        <blockquote>"Долги - единственное, что по-настоящему связывает тебя с людьми."</blockquote>
+        <blockquote>"Наша память избирательна, как урна..."</blockquote>
+        <blockquote>"У Бога добавки не просят."</blockquote>
+        <blockquote>"Трудно выбрать между дураком и подлецом, особенно если подлец - еще и дурак."</blockquote>
+        <blockquote>"Не так связывают любовь, дружба, уважение, как общая ненависть к чему-нибудь."</blockquote>
+        <blockquote>"Ужасней смерти — трусость, малодушие и неминуемое вслед за этим — рабство."</blockquote>
+        <blockquote>"Рожденный ползать летать... не хочет."</blockquote>
+        <blockquote>"Я предпочитаю быть один, но рядом с кем-то..."</blockquote>
+        <blockquote>"Семья — это если по звуку угадываешь, кто именно моется в душе."</blockquote>
+    </section>
+
+    <section id="contacts" class="section">
+        <h2>Контакты</h2>
+        <p>Свяжитесь с нами по электронной почте, если хотите приобрести книгу или книги Сергея: contact@dovlatov.ru</p>
+    </section>
+</body>
+</html>
